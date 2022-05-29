@@ -2,6 +2,7 @@
 // for displaying restaurants in the home page and the admin page
 
 include("connection.php");
+header("Access-Control-Allow-Origin:*");
 
 //new mysqli($host, $db_user, $db_pass, $db_name);
 

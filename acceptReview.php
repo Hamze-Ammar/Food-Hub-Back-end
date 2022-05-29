@@ -2,7 +2,7 @@
 // When admin accepts a review
 
 include("connection.php");
-
+header("Access-Control-Allow-Origin:*");
 
 // set parameters and execute
 $idreview = $_GET['idreview'];

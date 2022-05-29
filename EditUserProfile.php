@@ -1,5 +1,6 @@
 <?php
 include("connection.php");
+header("Access-Control-Allow-Origin:*");
 
 // set parameters and execute
 $user_id = $_POST['user_id'];

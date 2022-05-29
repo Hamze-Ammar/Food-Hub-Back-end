@@ -1,9 +1,9 @@
 <?php
 // for displaying users for admin
-
 include("connection.php");
+header("Access-Control-Allow-Origin:*");
 
-new mysqli($host, $db_user, $db_pass, $db_name);
+//new mysqli($host, $db_user, $db_pass, $db_name);
 
 
 $query = $mysqli->prepare("SELECT iduser, first_name, last_name, username, email, dob, phone_number, picture, gender, address FROM users");

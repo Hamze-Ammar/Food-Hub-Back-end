@@ -3,6 +3,7 @@
 
 //conx
 include("connection.php");
+header("Access-Control-Allow-Origin:*");
 
 // set parameters and execute
 $name= $_POST['name'];

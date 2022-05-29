@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-
+header("Access-Control-Allow-Origin:*");
 
 // set parameters and execute
 $content        = $_GET['content'];

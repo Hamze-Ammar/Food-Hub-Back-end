@@ -2,6 +2,7 @@
 // for displaying some info about a certain number of restaurants in the home page
 //conx
 include("connection.php");
+header("Access-Control-Allow-Origin:*");
 
 //number of restaurants requested
 $num = $_GET['num'];
