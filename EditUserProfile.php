@@ -1,8 +1,8 @@
 <?php
 include("connection.php");
 
-
 // set parameters and execute
+$user_id = $_POST['user_id'];
 $firstname= $_POST['first_name'];
 $lastname= $_POST['last_name'];
 $username= $_POST['username'];
@@ -14,8 +14,8 @@ $gender= $_POST['gender'];
 $address= $_POST['address'];
 
 // prepare and bind
-$query = $mysqli->prepare("INSERT INTO users (first_name, last_name, username, email, password, dob, phone_number, gender, address	) VALUES (?, ?, ?, ?, ?, ?, ? , ?,? )");
-$query->bind_param("sssssssis", $firstname, $lastname, $username, $email , $password, $dob , $phone_number , $gender , $address );
+$query = $mysqli->prepare("UPDATE users SET first_name=?, last_name=?, username=?, email=?, password=? , dob=?, phone_number=?, gender=?, address=?  WHERE iduser= ?");
+$query->bind_param("sssssssisi", $firstname, $lastname, $username, $email , $password, $dob , $phone_number , $gender , $address, $user_id );
 
 $query->execute();
 
@@ -30,8 +30,3 @@ $query->close();
 $mysqli->close();
 
 ?>
-
-
-
-
-
