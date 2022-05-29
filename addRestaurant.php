@@ -1,12 +1,8 @@
 <?php
-//include("connection.php");
+//Adding restaurant by admin, all columns are required
 
-$host = "localhost";
-$db_user = "root";
-$db_pass = null;
-$db_name = "foodhubdb";
-
-$mysqli = new mysqli($host, $db_user, $db_pass, $db_name);
+//conx
+include("connection.php");
 
 // set parameters and execute
 $name= $_POST['name'];
@@ -31,11 +27,6 @@ $response = [];
 $response["success"] = true;
 
 echo json_encode($response);
-echo ('ymkn meshe lhal');
-
-//close conx
-// $query->close();
-// $mysqli->close();
 
 ?>
 

@@ -1,12 +1,7 @@
 <?php
-//include("connection.php");
 
 //conx
-$host = "localhost";
-$db_user = "root";
-$db_pass = null;
-$db_name = "foodhubdb";
-$mysqli = new mysqli($host, $db_user, $db_pass, $db_name);
+include("connection.php");
 
 $email = $_POST["email"];
 $password = hash("sha256", $_POST["password"]);
