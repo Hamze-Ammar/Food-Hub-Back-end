@@ -6,7 +6,7 @@ include("connection.php");
 new mysqli($host, $db_user, $db_pass, $db_name);
 
 
-$query = $mysqli->prepare("SELECT * FROM users");
+$query = $mysqli->prepare("SELECT iduser, first_name, last_name, username, email, dob, phone_number, picture, gender, address FROM users");
 $query->execute();
 $array = $query->get_result();
 $response = [];
