@@ -24,7 +24,7 @@ $response = [];
 $response["success"] = true;
 
 echo json_encode($response);
-//echo ('<h1>ymkn meshe lhal</h1>');
+
 //close conx
 $query->close();
 $mysqli->close();
