@@ -1,9 +1,8 @@
 <?php
 //Adding restaurant by admin, all columns are required
-
-//conx
-include("connection.php");
 header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers: *");
+include("connection.php");
 
 // set parameters and execute
 $name= $_POST['name'];

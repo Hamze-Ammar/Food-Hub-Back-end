@@ -1,8 +1,9 @@
 <?php
 // for displaying some info about a certain number of restaurants in the home page
 //conx
-include("connection.php");
 header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers: *");
+include("connection.php");
 
 //number of restaurants requested
 $num = $_GET['num'];

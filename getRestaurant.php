@@ -1,8 +1,9 @@
 <?php
 //when a user click on a specific restaurant -> send all columns
 
-include("connection.php");
 header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers: *");
+include("connection.php");
 
 // set parameters and execute
 $name= $_GET['name'];

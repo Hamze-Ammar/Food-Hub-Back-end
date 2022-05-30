@@ -1,8 +1,9 @@
 <?php
 //send pending reviews to admin
 
-include("connection.php");
 header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers: *");
+include("connection.php");
 
 new mysqli($host, $db_user, $db_pass, $db_name);
 
