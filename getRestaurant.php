@@ -3,14 +3,19 @@
 
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
+include("./db/connection.php");
+
 
 // set parameters and execute
-$name= $_GET['name'];
+if (isset($_GET["restaurant_id"])){
+  $restaurant_id= $_GET['restaurant_id'];
+}else {
+  die("restaurant_id, is missing");
+}
 
 // prepare and bind
-$query = $mysqli->prepare("SELECT * FROM restaurants WHERE name= ? ");
-$query->bind_param("s", $name);
+$query = $mysqli->prepare("SELECT * FROM restaurants WHERE restaurant_id= ? ");
+$query->bind_param("i", $restaurant_id);
 
 $query->execute();
 $array = $query->get_result();
