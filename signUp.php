@@ -7,47 +7,47 @@ include("./db/connection.php");
 if (isset($_POST["first_name"])){
     $first_name= $_POST['first_name'];
 }else {
-    die("haha, nice try");
+    die("first_name, is missing");
 }
 if (isset($_POST["last_name"])){
     $last_name= $_POST['last_name'];
 }else {
-    die("haha, nice try");
+    die("last_name, is missing");
 }
 if (isset($_POST["username"])){
     $username= $_POST['username'];
 }else {
-    die("haha, nice try");
+    die("username, is missing");
 }
 if (isset($_POST["email"])){
     $email= $_POST['email'];
 }else {
-    die("haha, nice try");
+    die("email, is missing");
 }
 if (isset($_POST["password"])){
     $password = hash('sha256', $_POST['password']);
 }else {
-    die("haha, nice try");
+    die("password, is missing");
 }
 if (isset($_POST["dob"])){
     $dob= $_POST['dob'];
 }else {
-    die("haha, nice try");
+    die("dob, is missing");
 }
 if (isset($_POST["phone_number"])){
     $phone_number= $_POST['phone_number'];
 }else {
-    die("haha, nice try");
+    die("phone_number, is missing");
 }
 if (isset($_POST["gender"])){
     $gender= $_POST['gender'];
 }else {
-    die("haha, nice try");
+    die("gender, is missing");
 }
 if (isset($_POST["address"])){
     $address= $_POST['address'];
 }else {
-    die("haha, nice try");
+    die("address, is missing");
 }
 
 
