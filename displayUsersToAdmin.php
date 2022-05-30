@@ -3,9 +3,7 @@
 
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
-
-//new mysqli($host, $db_user, $db_pass, $db_name);
+include("./db/connection.php");
 
 
 $query = $mysqli->prepare("SELECT iduser, first_name, last_name, username, email, dob, phone_number, picture, gender, address FROM users");
