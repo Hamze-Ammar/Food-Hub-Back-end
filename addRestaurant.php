@@ -57,14 +57,6 @@ if (isset($_POST["cuisine"])){
     die("cuisine, is missing");
 }
 
-// $vegan_option= $_POST['vegan_option'];
-// $wifi = $_POST['wifi'];
-// $indoor_seating= $_POST['indoor_seating'];
-// $opening_hr= $_POST['opening_hr'];
-// $closing_hr= $_POST['closing_hr'];
-// $address= $_POST['address'];
-// $cuisine= $_POST['cuisine'];
-
 // prepare and bind
 $query = $mysqli->prepare("INSERT INTO restaurants (name, opening_hr, closing_hr, description, vegan_option, phone_number, wifi, indoor_seating, address, cuisine	) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $query->bind_param("ssssisiiss", $name, $opening_hr, $closing_hr, $description , $vegan_option, $phone_number , $wifi , $indoor_seating , $address, $cuisine );
@@ -76,7 +68,6 @@ $response = [];
 $response["success"] = true;
 
 echo json_encode($response);
-
 ?>
 
 
