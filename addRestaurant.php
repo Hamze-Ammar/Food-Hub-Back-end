@@ -5,7 +5,6 @@ header("Access-Control-Allow-Headers: *");
 include("./db/connection.php");
 
 // set parameters and execute
-// set parameters and execute
 if (isset($_POST["name"])){
     $name= $_POST['name'];
 }else {

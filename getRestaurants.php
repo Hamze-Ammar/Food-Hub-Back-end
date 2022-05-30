@@ -3,7 +3,7 @@
 
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
+include("./db/connection.php");
 
 //new mysqli($host, $db_user, $db_pass, $db_name);
 
