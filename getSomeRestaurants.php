@@ -3,17 +3,20 @@
 //conx
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
+include("./db/connection.php");
 
 //number of restaurants requested
-$num = $_GET['num'];
+if (isset($_GET["num"])){
+  $num= $_GET['num'];
+}else {
+  die("num, is missing");
+}
 
-
-$query = $mysqli->prepare("SELECT restaurant_id, name, address, cuisine FROM restaurants LIMIT $num");
+$query = $mysqli->prepare("SELECT restaurant_id, name, address, cuisine FROM restaurants LIMIT ?");
+$query->bind_param("i", $num);
 $query->execute();
 $array = $query->get_result();
 $response = [];
-
 
 while($toget = $array->fetch_assoc()) {
   $response[] = $toget;
