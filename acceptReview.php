@@ -1,10 +1,15 @@
 <?php
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
+include("./db/connection.php");
 
 // set parameters and execute
-$idreview = $_GET['idreview'];
+if (isset($_POST["idreview"])){
+    $idreview= $_POST['idreview'];
+}else {
+    die("Id was not received");
+}
+
 
 // prepare and bind
 $query = $mysqli->prepare("UPDATE reviews SET reviews.isPending ='0' WHERE idreview=? ");
