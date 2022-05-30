@@ -3,13 +3,11 @@
 
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
-include("connection.php");
-
-new mysqli($host, $db_user, $db_pass, $db_name);
+include("./db/connection.php");
 
 
-$query = $mysqli->prepare("SELECT reviews.idreview as ID, reviews.content, 	reviews.rate, reviews.date , users.first_name as UserName, restaurants.name as RestaurantName 
-FROM reviews, users, restaurants WHERE reviews.isPending=1 AND reviews.user_id = users.iduser AND reviews.restaurant_id = restaurants.restaurant_id  ");
+
+$query = $mysqli->prepare("SELECT reviews.idreview as ID, reviews.content, 	reviews.rate, reviews.date , users.first_name as User_fname, users.last_name as User_lname, restaurants.name as RestaurantName FROM reviews, users, restaurants WHERE reviews.isPending=1 AND reviews.user_id = users.iduser AND reviews.restaurant_id = restaurants.restaurant_id");
 
 $query->execute();
 $array = $query->get_result();
