@@ -55,6 +55,11 @@ if (isset($_POST["cuisine"])){
 }else {
     die("cuisine, is missing");
 }
+if (isset($_POST["rate"])){
+    $rate= $_POST['rate'];
+}else {
+    die("rate, is missing");
+}
 
 // prepare and bind
 $query = $mysqli->prepare("INSERT INTO restaurants (name, opening_hr, closing_hr, description, vegan_option, phone_number, wifi, indoor_seating, address, cuisine	) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");

@@ -10,7 +10,6 @@ if (isset($_POST["idreview"])){
     die("Id was not received");
 }
 
-
 // prepare and bind
 $query = $mysqli->prepare("UPDATE reviews SET reviews.isPending ='0' WHERE idreview=? ");
 $query->bind_param("s", $idreview );

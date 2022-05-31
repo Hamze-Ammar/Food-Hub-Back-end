@@ -7,8 +7,8 @@ include("./db/connection.php");
 
 
 // set parameters and execute
-if (isset($_GET["restaurant_id"])){
-  $restaurant_id= $_GET['restaurant_id'];
+if (isset($_POST["restaurant_id"])){
+  $restaurant_id= $_POST['restaurant_id'];
 }else {
   die("restaurant_id, is missing");
 }
