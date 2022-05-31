@@ -19,7 +19,7 @@ if (isset($_POST["password"])){
 }
 
 // Returns iduser, id_admin OR empty array meaning user not found
-$query = $mysqli->prepare("Select iduser, is_admin from users where email = ? AND password = ?");
+$query = $mysqli->prepare("Select iduser, first_name, is_admin from users where email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
 
 $query->execute();
@@ -27,7 +27,7 @@ $query->execute();
 
 $query->store_result();
 $num_rows = $query->num_rows;
-$query->bind_result($iduser, $is_admin);
+$query->bind_result($iduser, $first_name, $is_admin);
 $query->fetch();
 $response = [];
 if($num_rows == 0){
@@ -38,6 +38,7 @@ if($num_rows == 0){
   $response["response"] = "Logged in";
   $response["user_id"] = $iduser;
   $response["is_admin"] = $is_admin;
+  $response["first_name"] = $first_name;
 }
 $json = json_encode($response);
 echo $json;
