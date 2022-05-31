@@ -1,4 +1,6 @@
 <?php
+// NOTE THAT THIS API WONT WORK IN CASE THERE ARE MORE THAN ONE SAME EMAIL IN THE TABLE
+
 header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Headers: *");
 include("./db/connection.php");
@@ -21,14 +23,22 @@ $query = $mysqli->prepare("Select iduser, is_admin from users where email = ? AN
 $query->bind_param("ss", $email, $password);
 
 $query->execute();
-$array = $query->get_result();
+
+
+$query->store_result();
+$num_rows = $query->num_rows;
+$query->bind_result($iduser, $is_admin);
+$query->fetch();
 $response = [];
-
-
-while($toget = $array->fetch_assoc()) {
-  $response[] = $toget;
+if($num_rows == 0){
+  $response["success"] = true;
+  $response["response"] = "User Not Found";
+}else{
+  $response["success"] = true;
+  $response["response"] = "Logged in";
+  $response["user_id"] = $iduser;
+  $response["is_admin"] = $is_admin;
 }
-
 $json = json_encode($response);
 echo $json;
 
